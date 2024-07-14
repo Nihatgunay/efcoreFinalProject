@@ -1,0 +1,17 @@
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\bin\Debug\net8.0\Library_Management_EF_Data.deps.json
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\bin\Debug\net8.0\Library_Management_EF_Data.runtimeconfig.json
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\bin\Debug\net8.0\Library_Management_EF_Data.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\bin\Debug\net8.0\Library_Management_EF_Data.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\bin\Debug\net8.0\Library_Management_EF_Core.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\bin\Debug\net8.0\Library_Management_EF_Core.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.AssemblyInfoInputs.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.AssemblyInfo.cs
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_.05CB4858.Up2Date
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\refint\Library_Management_EF_Data.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\Library_Management_EF_Data.genruntimeconfig.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Data\obj\Debug\net8.0\ref\Library_Management_EF_Data.dll

@@ -1,0 +1,17 @@
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\bin\Debug\net8.0\Library_Management_EF_Business.deps.json
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\bin\Debug\net8.0\Library_Management_EF_Business.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\bin\Debug\net8.0\Library_Management_EF_Business.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_Management_EF_Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_Management_EF_Business.AssemblyInfoInputs.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_Management_EF_Business.AssemblyInfo.cs
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_Management_EF_Business.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_Management_EF_Business.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\refint\Library_Management_EF_Business.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_Management_EF_Business.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\ref\Library_Management_EF_Business.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\bin\Debug\net8.0\Library_Management_EF_Core.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\bin\Debug\net8.0\Library_Management_EF_Data.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\bin\Debug\net8.0\Library_Management_EF_Data.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\bin\Debug\net8.0\Library_Management_EF_Core.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_Management_EF_Business.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Business\obj\Debug\net8.0\Library_.3221C733.Up2Date

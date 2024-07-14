@@ -1,0 +1,14 @@
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\bin\Debug\net8.0\Library_Management_EF_Core.deps.json
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\bin\Debug\net8.0\Library_Management_EF_Core.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\bin\Debug\net8.0\Library_Management_EF_Core.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.AssemblyInfoInputs.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.AssemblyInfo.cs
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\refint\Library_Management_EF_Core.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.pdb
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\ref\Library_Management_EF_Core.dll
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\bin\Debug\net8.0\Library_Management_EF_Core.runtimeconfig.json
+C:\Users\Lenovo\source\repos\Library_Management_Application_EF\Library_Management_EF_Core\obj\Debug\net8.0\Library_Management_EF_Core.genruntimeconfig.cache
