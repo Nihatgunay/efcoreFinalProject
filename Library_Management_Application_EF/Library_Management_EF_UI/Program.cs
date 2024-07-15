@@ -461,6 +461,8 @@ namespace Library_Management_EF_UI
                                 await Console.Out.WriteLineAsync("No borrowed Books");
                             }
                             break;
+                        case 6:
+                            break;
                         case 7:
                             var latereturned = await loanService.LateReturnedBorrowers();
                             if (latereturned != null)
