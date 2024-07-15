@@ -428,6 +428,9 @@ namespace Library_Management_EF_UI
                                 else
                                 {
                                     await loanService.BorrowBook(int.Parse(borchoice), int.Parse(bookchoice));
+                                    await Console.Out.WriteLineAsync("Do you want to borrow another book? (yes/no)");
+                                    string yesnochoice = Console.ReadLine();
+                                    if(yes)
                                 }
                             }
                             break;
