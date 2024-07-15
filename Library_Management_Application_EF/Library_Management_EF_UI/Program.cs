@@ -385,52 +385,73 @@ namespace Library_Management_EF_UI
                             }
                             break;
                         case 4:
-                            Console.WriteLine("Borrowers:");
-                            var borrowers = await borrowerService.GetAllBorrowersAsync();
-                            if (borrowers != null)
+                            while (true)
                             {
-                                foreach (var item in borrowers)
+                                Console.WriteLine("Borrowers:");
+                                var borrowers = await borrowerService.GetAllBorrowersAsync();
+                                if (borrowers != null)
                                 {
-                                    await Console.Out.WriteLineAsync($"Id - {item.Id} " +
-                                        $"borrower Name - {item.Name} " +
-                                        $"borrower email - {item.Email}");
-                                    await Console.Out.WriteLineAsync(" ");
+                                    foreach (var item in borrowers)
+                                    {
+                                        await Console.Out.WriteLineAsync($"Id - {item.Id} " +
+                                            $"borrower Name - {item.Name} " +
+                                            $"borrower email - {item.Email}");
+                                        await Console.Out.WriteLineAsync(" ");
+                                    }
                                 }
-                            }
-                            await Console.Out.WriteLineAsync("Books: ");
-                            var books = await bookService.GetAllBooksWhereNoBorrowerAsync();
-                            if (books != null)
-                            {
-                                foreach (var item in books)
+                                await Console.Out.WriteLineAsync("Books: ");
+                                var books = await bookService.GetAllBooksWhereNoBorrowerAsync();
+                                if (books != null)
                                 {
-                                    await Console.Out.WriteLineAsync($"Id - {item.Id} " +
-                                        $"Book title - {item.Title} " +
-                                        $"book desc - {item.Desc} " +
-                                        $"borrowerId - {item.BorrowerId} " +
-                                        $"book published year - {item.PublishedYear}");
-                                    await Console.Out.WriteLineAsync(" ");
+                                    foreach (var item in books)
+                                    {
+                                        await Console.Out.WriteLineAsync($"Id - {item.Id} " +
+                                            $"Book title - {item.Title} " +
+                                            $"book desc - {item.Desc} " +
+                                            $"borrowerId - {item.BorrowerId} " +
+                                            $"book published year - {item.PublishedYear}");
+                                        await Console.Out.WriteLineAsync(" ");
+                                    }
                                 }
-                            }
-                            await Console.Out.WriteAsync("enter borrower id: ");
-                            string borchoice = Console.ReadLine();
-                            if (string.IsNullOrEmpty(borchoice) || borchoice.Any(char.IsLetter))
-                            {
-                                await Console.Out.WriteLineAsync("try again");
-                            }
-                            else
-                            {
-                                await Console.Out.WriteAsync("enter book id: ");
-                                string bookchoice = Console.ReadLine();
-                                if (string.IsNullOrEmpty(bookchoice) || bookchoice.Any(char.IsLetter))
+                                await Console.Out.WriteAsync("enter borrower id: ");
+                                string borchoice = Console.ReadLine();
+                                if (string.IsNullOrEmpty(borchoice) || borchoice.Any(char.IsLetter))
                                 {
                                     await Console.Out.WriteLineAsync("try again");
                                 }
                                 else
                                 {
-                                    await loanService.BorrowBook(int.Parse(borchoice), int.Parse(bookchoice));
-                                    await Console.Out.WriteLineAsync("Do you want to borrow another book? (yes/no)");
-                                    string yesnochoice = Console.ReadLine();
-                                    if(yes)
+                                    await Console.Out.WriteAsync("enter book id: ");
+                                    string bookchoice = Console.ReadLine();
+                                    if (string.IsNullOrEmpty(bookchoice) || bookchoice.Any(char.IsLetter))
+                                    {
+                                        await Console.Out.WriteLineAsync("try again");
+                                    }
+                                    else
+                                    {
+                                        await loanService.BorrowBook(int.Parse(borchoice), int.Parse(bookchoice));
+                                        await Console.Out.WriteLineAsync("Do you want to borrow another book? (yes/no)");
+                                        string yesnochoice = Console.ReadLine();
+                                        if (string.IsNullOrEmpty(bookchoice))
+                                        {
+                                            await Console.Out.WriteLineAsync("it cant be null");
+                                        }
+                                        else
+                                        {
+                                            if (yesnochoice.ToLower().Trim() == "yes")
+                                            {
+                                                continue;
+                                            }
+                                            if (yesnochoice.ToLower().Trim() == "no")
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("type yes/no");
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             break;
@@ -455,8 +476,17 @@ namespace Library_Management_EF_UI
                                 }
                                 else
                                 {
-                                    await loanService.ReturnBook(int.Parse(bookchoice2));
-                                    await Console.Out.WriteLineAsync("Book returned successfully.");
+                                    await Console.Out.WriteAsync("Enter return date (yyyy-MM-dd): ");
+                                    string returndate = Console.ReadLine();
+                                    if (!DateTime.TryParseExact(returndate, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime returnDate))
+                                    {
+                                        await Console.Out.WriteLineAsync("Invalid date format or return date is before the loan date");
+                                    }
+                                    else
+                                    {
+                                        await loanService.ReturnBook(int.Parse(bookchoice2), returnDate);
+                                        await Console.Out.WriteLineAsync("Book returned successfully.");
+                                    }
                                 }
                             }
                             else
