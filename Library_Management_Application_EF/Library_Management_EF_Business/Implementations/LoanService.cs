@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using Library_Management_EF_Business.Interfaces;
 using Library_Management_EF_Core.Models;
 using Library_Management_EF_Core.Repositories;
@@ -74,18 +74,18 @@ namespace Library_Management_EF_Business.Implementations
 
         public async Task ReturnBook(int bookid)
         {
-            var loan = _loanrepository.GetAll().FirstOrDefault(x => x.LoanItems.Any(x => x.BookId == bookid && x.Loan.ReturnDate == null));
+            var loan = _loanrepository.GetAll().Include(x => x.LoanItems).FirstOrDefault(x => x.LoanItems.Any(x => x.BookId == bookid && x.Loan.ReturnDate == null));
             if (loan == null)
             {
                 throw new NullReferenceException("no book found");
             }
-            var loanitem = loan.LoanItems.FirstOrDefault(x => x.BookId == bookid && x.Loan.ReturnDate == null);
-            if (loanitem == null)
-            {
-                throw new NullReferenceException();
-            }
+            //var loanitem = loan.LoanItems.FirstOrDefault(x => x.BookId == bookid && x.Loan.ReturnDate == null);
+            //if (loanitem == null)
+            //{
+            //    throw new NullReferenceException();
+            //}
 
-            loanitem.Loan.ReturnDate = DateTime.UtcNow;
+            //loanitem.Loan.ReturnDate = DateTime.UtcNow;
             loan.ReturnDate = DateTime.UtcNow;
             await _loanrepository.CommitAsync();
 
