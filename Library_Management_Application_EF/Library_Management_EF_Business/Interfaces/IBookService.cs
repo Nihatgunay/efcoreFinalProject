@@ -12,6 +12,6 @@ namespace Library_Management_EF_Business.Interfaces
         Task UpdateBookAsync(Book book);
         Task<List<Book>> FilterBooksByTitle(string title);
         Task<List<Book>> FilterBooksByAuthor(string authorname);
-        //Task<Book> GetMostBorrowedBook();
+        Task<Book> GetMostBorrowedBook();
     }
 }
