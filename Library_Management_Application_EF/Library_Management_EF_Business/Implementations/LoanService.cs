@@ -36,9 +36,8 @@ namespace Library_Management_EF_Business.Implementations
             //    await Console.Out.WriteLineAsync("book can not be borrowed");
             //}
 
-            var existingloanitem = await _loanrepository.GetAll().Where(x => x.LoanItems
-                .Any(x => x.BookId == bookid && x.Loan.ReturnDate == null))
-                .FirstOrDefaultAsync();
+            var existingloanitem = await _loanrepository.GetAll().Include(x => x.LoanItems)
+                .FirstOrDefaultAsync(y => y.LoanItems.Any(x => x.BookId == bookid && y.ReturnDate == null));
 
             if (existingloanitem != null)
             {
@@ -50,8 +49,8 @@ namespace Library_Management_EF_Business.Implementations
             var loan = new Loan
             {
                 BorrowerId = borrowerid,
-                LoanDate = DateTime.UtcNow,
-                MustReturnDate = DateTime.UtcNow.AddDays(15),
+                LoanDate = DateTime.UtcNow.AddHours(4),
+                MustReturnDate = DateTime.UtcNow.AddHours(4).AddDays(15),
                 LoanItems = new List<LoanItem> { loanitem }
             };
             await _loanrepository.Insert(loan);
@@ -72,27 +71,36 @@ namespace Library_Management_EF_Business.Implementations
             return borrower;
         }
 
-        public async Task ReturnBook(int bookid)
+        public async Task ReturnBook(int bookid, DateTime returndate)
         {
             var loan = _loanrepository.GetAll().Include(x => x.LoanItems).FirstOrDefault(x => x.LoanItems.Any(x => x.BookId == bookid && x.Loan.ReturnDate == null));
             if (loan == null)
             {
                 throw new NullReferenceException("no book found");
             }
-            //var loanitem = loan.LoanItems.FirstOrDefault(x => x.BookId == bookid && x.Loan.ReturnDate == null);
-            //if (loanitem == null)
-            //{
-            //    throw new NullReferenceException();
-            //}
+            var loanitem = loan.LoanItems.FirstOrDefault(x => x.BookId == bookid && x.Loan.ReturnDate == null);
+            if (loanitem == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (returndate < loan.LoanDate)
+            {
+                throw new Exception("invalid return date");
+            }
 
-            //loanitem.Loan.ReturnDate = DateTime.UtcNow;
-            loan.ReturnDate = DateTime.UtcNow;
+            loanitem.Loan.ReturnDate = DateTime.UtcNow;
+
+            if (returndate > loan.MustReturnDate)
+            {
+                await Console.Out.WriteLineAsync("you returned the book late...");
+            }
+            loan.ReturnDate = returndate;
             await _loanrepository.CommitAsync();
 
             var book = await _bookrepository.GetAsync(bookid);
             if (book == null)
             {
-                throw new NullReferenceException();
+                throw new NullReferenceException("no book with this id");
             }
             book.BorrowerId = null;
             await _bookrepository.CommitAsync();
