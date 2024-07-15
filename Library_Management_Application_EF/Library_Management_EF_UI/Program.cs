@@ -1,4 +1,4 @@
-﻿using Library_Management_EF_Business.Implementations;
+using Library_Management_EF_Business.Implementations;
 using Library_Management_EF_Business.Interfaces;
 using Library_Management_EF_Core.Models;
 using static System.Reflection.Metadata.BlobBuilder;
@@ -20,10 +20,11 @@ namespace Library_Management_EF_UI
                 Console.WriteLine("3 - Borrower actions"); 
                 Console.WriteLine("4 - Borrow book");
                 Console.WriteLine("5 - return book");
-                Console.WriteLine("6 - borrowers with late returns");
-                Console.WriteLine("7 - borrowed books");
-                Console.WriteLine("8 - FilterBooksByTitle");
-                Console.WriteLine("9 - FilterBooksByAuthor");
+                Console.WriteLine("6 - Max borrowed book");
+                Console.WriteLine("7 - borrowers with late returns");
+                Console.WriteLine("8 - borrowed books");
+                Console.WriteLine("9 - FilterBooksByTitle");
+                Console.WriteLine("10 - FilterBooksByAuthor");
                 Console.WriteLine("0 - Exit");
 
                 Console.Write("  choose one: ");
@@ -460,7 +461,7 @@ namespace Library_Management_EF_UI
                                 await Console.Out.WriteLineAsync("No borrowed Books");
                             }
                             break;
-                        case 6:
+                        case 7:
                             var latereturned = await loanService.LateReturnedBorrowers();
                             if (latereturned != null)
                             {
@@ -472,7 +473,7 @@ namespace Library_Management_EF_UI
                                 }
                             }
                             break;
-                        case 7:
+                        case 8:
                             var borbooks = await loanService.BorrowersWithBooks();
                             if (borbooks != null)
                             {
@@ -484,7 +485,7 @@ namespace Library_Management_EF_UI
                                 }
                             }
                             break;
-                        case 8:
+                        case 9:
                             await Console.Out.WriteLineAsync("enter title for filtering books");
                             string title = Console.ReadLine();
                             if (string.IsNullOrEmpty(title))
@@ -506,7 +507,7 @@ namespace Library_Management_EF_UI
                                 }
                             }
                             break;
-                        case 9:
+                        case 10:
                             await Console.Out.WriteLineAsync("enter authoor name for filtering books");
                             string autname2 = Console.ReadLine();
                             if (string.IsNullOrEmpty(autname2))
