@@ -173,24 +173,24 @@ namespace Library_Management_EF_UI
                                             {
                                                 Console.Write("enter book description: ");
                                                 string? bookdesc = Console.ReadLine();
-                                                    await Console.Out.WriteLineAsync("enter published year");
-                                                    string bookyear = Console.ReadLine();
-                                                    if (string.IsNullOrEmpty(bookyear) || bookyear.Any(char.IsLetter) || !int.TryParse(bookyear, out int year))
+                                                await Console.Out.WriteLineAsync("enter published year");
+                                                string bookyear = Console.ReadLine();
+                                                if (string.IsNullOrEmpty(bookyear) || bookyear.Any(char.IsLetter) || !int.TryParse(bookyear, out int year))
+                                                {
+                                                    await Console.Out.WriteLineAsync("year cannot be null or contain letters or be lower than 2000");
+                                                }
+                                                else
+                                                {
+                                                    await bookService.CreateBookAsync(new Book
                                                     {
-                                                        await Console.Out.WriteLineAsync("year cannot be null or contain letters or be lower than 2000");
-                                                    }
-                                                    else
-                                                    {
-                                                        await bookService.CreateBookAsync(new Book
-                                                        {
-                                                            Title = bookname,
-                                                            Desc = bookdesc,
-                                                            PublishedYear = int.Parse(bookyear)
-                                                        });
-                                                        Console.WriteLine("book created");
-                                                        Console.WriteLine(" ");
-                                                        break;
-                                                    }
+                                                        Title = bookname,
+                                                        Desc = bookdesc,
+                                                        PublishedYear = int.Parse(bookyear)
+                                                    });
+                                                    Console.WriteLine("book created");
+                                                    Console.WriteLine(" ");
+                                                    break;
+                                                }
                                             }
                                         }
                                         break;
@@ -495,6 +495,10 @@ namespace Library_Management_EF_UI
                             }
                             break;
                         case 6:
+                            var book = await bookService.GetMostBorrowedBook();
+                            await Console.Out.WriteLineAsync($"book title - {book.Title} " +
+                                $"book desc - {book.Desc} " +
+                                $"book publish year - {book.PublishedYear}");
                             break;
                         case 7:
                             var latereturned = await loanService.LateReturnedBorrowers();
