@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Library_Management_EF_Business.Interfaces;
 using Library_Management_EF_Core.Models;
 using Library_Management_EF_Core.Repositories;
@@ -45,16 +45,38 @@ namespace Library_Management_EF_Business.Implementations
             return await _repository.GetAll().ToListAsync();
         }
 
-        //public async Task<Book> GetMostBorrowedBook()
-        //{
-        //    var max = await _loanItemRepository.GetAll().ToListAsync();
-        //    var borrowercount = new Dictionary<string, int>();
-        //    foreach (var item in max)
-        //    {
-        //        var book = await _repository.GetAsync(item.BookId);
+        public async Task<Book> GetMostBorrowedBook()
+        {
+            var loanitem = await _loanItemRepository.GetAll().ToListAsync();
+            var borrowerCount = new Dictionary<int, int>();
 
-        //    }
-        //}
+            int maxBorrows = 0;
+            int mostborrowedbook = 0;
+
+            foreach (var item in loanitem)
+            {
+                if (borrowerCount.ContainsKey(item.BookId))
+                {
+                    borrowerCount[item.BookId]++;
+                }
+                else
+                {
+                    borrowerCount[item.BookId] = 1;
+                }
+            }
+
+            foreach (var item in borrowerCount)
+            {
+                if (item.Value > maxBorrows)
+                {
+                    maxBorrows = item.Value;
+                    mostborrowedbook = item.Key;
+                }
+            }
+            var mostBorrowedBook = await _repository.GetAsync(mostborrowedbook);
+
+            return mostBorrowedBook;
+        }
 
         public async Task UpdateBookAsync(Book book)
         {
