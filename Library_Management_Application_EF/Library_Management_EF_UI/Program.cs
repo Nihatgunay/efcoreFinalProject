@@ -280,7 +280,7 @@ namespace Library_Management_EF_UI
                                             foreach (var item in borrowers1)
                                             {
                                                 await Console.Out.WriteLineAsync($"Id - {item.Id} " +
-                                                    $"borrower Name - {item.Name}" +
+                                                    $"borrower Name - {item.Name} " +
                                                     $"borrower email - {item.Email}");
                                                 await Console.Out.WriteLineAsync(" ");
                                             }
@@ -389,7 +389,13 @@ namespace Library_Management_EF_UI
                             {
                                 Console.WriteLine("Borrowers:");
                                 var borrowers = await borrowerService.GetAllBorrowersAsync();
-                                if (borrowers != null)
+                                if (borrowers == null || !borrowers.Any())
+                                {
+                                    Console.WriteLine("no borrowers found");
+                                    Console.WriteLine(" ");
+                                    break;
+                                }
+                                else
                                 {
                                     foreach (var item in borrowers)
                                     {
@@ -401,7 +407,13 @@ namespace Library_Management_EF_UI
                                 }
                                 await Console.Out.WriteLineAsync("Books: ");
                                 var books = await bookService.GetAllBooksWhereNoBorrowerAsync();
-                                if (books != null)
+                                if (books == null || !books.Any())
+                                {
+                                    Console.WriteLine("no books found");
+                                    Console.WriteLine(" ");
+                                    break;
+                                }
+                                else
                                 {
                                     foreach (var item in books)
                                     {
@@ -457,7 +469,13 @@ namespace Library_Management_EF_UI
                             break;
                         case 5:
                             var bookswhere = await bookService.GetAllBooksWhereAsync();
-                            if (bookswhere != null)
+                            if (bookswhere == null || !bookswhere.Any())
+                            {
+                                await Console.Out.WriteLineAsync("no borrowed book");
+                                Console.WriteLine(" ");
+                                break;
+                            }
+                            else
                             {
                                 foreach (var item in bookswhere)
                                 {
@@ -489,10 +507,6 @@ namespace Library_Management_EF_UI
                                     }
                                 }
                             }
-                            else
-                            {
-                                await Console.Out.WriteLineAsync("No borrowed Books");
-                            }
                             break;
                         case 6:
                             var book = await bookService.GetMostBorrowedBook();
@@ -506,8 +520,8 @@ namespace Library_Management_EF_UI
                             {
                                 foreach (var item in latereturned)
                                 {
-                                    await Console.Out.WriteLineAsync($"borrower name - {item.Name}" +
-                                        $"borrower email - {item.Email}");
+                                    await Console.Out.WriteLineAsync($"borrower name - {item.Name} " +
+                                        $"borrower email - {item.Email} ");
                                     await Console.Out.WriteLineAsync(" ");
                                 }
                             }
